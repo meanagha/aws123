@@ -12,12 +12,13 @@ var params = {
   DryRun: false
 };
 app.get('/', (req, res) => {
-  //res.send('Hello World!')
+  
   ec2.describeInstances(params, function(err, data) {
     if (err) {
-      res.send("Error", err.stack);
+      console.log("Error", err.stack);
     } else {
-      res.send("Success", JSON.stringify(data));
+      console.log("Success", JSON.stringify(data));
+      res.send('Hello World!')
     }
   });
 })
