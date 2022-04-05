@@ -44,7 +44,7 @@ var ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
 
 var params = {
   InstanceIds: ['i-0b36f38f5c4148eed'],
-  DryRun: false
+  DryRun: true
 };
 
 if (process.argv[2].toUpperCase() === "ON") {
