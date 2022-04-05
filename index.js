@@ -43,13 +43,15 @@ AWS.config.update({region: 'REGION'});
 var ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
 
 var params = {
-  InstanceIds: ['INSTANCE_ID'],
+  InstanceIds: ['i-0b36f38f5c4148eed'],
   DryRun: true
 };
 
 if (process.argv[2].toUpperCase() === "ON") {
+  console.log(process.argv[2])
   // Call EC2 to start monitoring the selected instances
   ec2.monitorInstances(params, function(err, data) {
+    console.log("jj=",err)
     if (err && err.code === 'DryRunOperation') {
       params.DryRun = false;
       ec2.monitorInstances(params, function(err, data) {
