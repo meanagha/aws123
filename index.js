@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 var AWS = require("aws-sdk");
 // Set the region 
-AWS.config.update({region: 'REGION'});
+AWS.config.update({region: 'us-east-1'});
 
 // Create EC2 service object
 var ec2 = new AWS.EC2({apiVersion: '2016-11-15'});
