@@ -18,14 +18,15 @@ app.get('/', (req, res) => {
     if (err) {
       console.log("Error", err.stack);
     } else {
-      console.log("Success", JSON.stringify(data.InstanceId));
+      //console.log("Success", JSON.stringify(data.InstanceId));
+      meta.request("/latest/meta-data/instance-id", function(err, data){
+        console.log(data);
+      });
       res.send('Hello World!')
     }
   });
 })
-meta.request("/latest/meta-data/instance-id", function(err, data){
-  console.log(data);
-});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
